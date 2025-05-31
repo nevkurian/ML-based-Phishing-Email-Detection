@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prediction Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+      .container {
+        max-width: 700px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+      .result-safe {
+        color: green;
+        font-weight: bold;
+      }
+      .result-phishing {
+        color: red;
+        font-weight: bold;
+      }
+      pre {
+        background-color: #eee;
+        padding: 15px;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #2c7be5;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Prediction Result</h2>
+
+      <!-- Display the prediction -->
+      <p>
+        The analysis suggests the email is:
+        <span
+          class="{{ 'result-phishing' if prediction == 'Phishing Email' else 'result-safe' }}"
+        >
+          {{ prediction }}
+        </span>
+      </p>
+
+      <hr />
+
+      <h3>Analyzed Email Body:</h3>
+      <pre>{{ email_body }}</pre>
+      <!-- Display the submitted body -->
+
+      <a href="/">Analyze another email</a>
+    </div>
+  </body>
+</html>
